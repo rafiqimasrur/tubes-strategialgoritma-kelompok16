@@ -3,11 +3,7 @@
 # Muhammad Rafiqi Masrur
 # Nabila Luthfia Arifin
 
-from timeit import default_timer
-
 # Floor and Ceiling in a Sorted Array (Bruteforce)
-
-startTime = default_timer()
 
 # Fungsi untuk mendapatkan index floor dari x pada arr[0...n-1]
 
@@ -54,8 +50,6 @@ def cariCeiling(arr, n, x):
     # Jika x lebih besar dari element terakhir, maka ceiling tidak ditemukan
     return -1
 
-endTime = default_timer()
-
 arr = list(map(int, input("Masukkan element array, dipisah spasi, dari kecil ke besar : ").split()))
 n = len(arr)
 x = int(input("Masukkan nilai x : "))
@@ -72,5 +66,3 @@ if (indexCeiling == -1):
     print("Ceiling dari", x, "tidak ada pada array")
 else:
     print("Ceiling dari", x, "adalah", arr[indexCeiling])
-
-print("Running Time :", (endTime - startTime), "second")
