@@ -3,15 +3,19 @@
 # Muhammad Rafiqi Masrur
 # Nabila Luthfia Arifin
 
+from timeit import default_timer
+
 # Floor and Ceiling in a Sorted Array (Divide and Conquer)
+
+startTime = default_timer()
 
 # Fungsi untuk mendapatkan index floor dari x pada arr[low...high]
 def cariFloor(arr, low, high, x):
-    # Jika low dan high bersebrangan, maka x lebih kecil dari element pertama sehingga floor tidak ada
-    if (low > high):
+    # Jika x lebih kecil dari element pertama maka floor tidak ada
+    if (x < arr[low]):
         return -1
 
-    # Jika element terakhir lebih kecil atau sama dengan x, return element terakhir
+    # Jika x lebih besar atau sama dengan element terakhir, maka return element terakhir
     if (x >= arr[high]):
         return high
 
@@ -66,6 +70,8 @@ def cariCeiling(arr, low, high, x):
         else:
             return cariCeiling(arr, low, mid - 1, x)
 
+endTime = default_timer()
+
 arr = list(map(int, input("Masukkan element array, dipisah spasi, dari kecil ke besar : ").split()))
 n = len(arr)
 x = int(input("Masukkan nilai x : "))
@@ -82,3 +88,5 @@ if (indexCeiling == -1):
     print("Ceiling dari", x, "tidak ada pada array")
 else:
     print("Ceiling dari", x, "adalah", arr[indexCeiling])
+
+print("Running Time :", (endTime - startTime), "second")
